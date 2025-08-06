@@ -1,14 +1,24 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+// import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+			<script>
+			import { supported_langs, default_lang } from '../locales/index';
+			const userLang = (navigator.language || navigator.language || default_lang).slice(0, 2);
+
+			const langToUse = supported_langs.includes(userLang) ? userLang : default_lang;
+
+			if (!window.location.pathname.startsWith(`/${langToUse}/`)) {
+				window.location.replace(`/${langToUse}/`);
+			}
+		</script>
 	</head>
 	<body>
 		<Header />

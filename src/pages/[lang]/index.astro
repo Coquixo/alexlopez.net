@@ -1,0 +1,29 @@
+---
+
+import {default_lang, useTranslations} from '../../locales/index'
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
+  ];
+}
+
+const lang = Astro.params.lang ;
+const t = useTranslations(lang)
+
+
+---
+
+<html lang={lang} >
+  <head>
+    <title>{t('profile.welcome')}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+
+    <h1>{t('profile.welcome')}</h1>
+
+  </body>
+</html>
