@@ -1,0 +1,12 @@
+/node_modules/
+/.qodo/
+/.vscode/
+/.DS_Store
+.env
+/dist/
+/build/
+/.cache/
+/.astro/
+
+# add alexlopez.net.pdf
+/public/assets/alexlopez.net.pdf
